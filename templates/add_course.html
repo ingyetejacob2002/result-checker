@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card shadow p-4">
+    <h4>Add Course</h4>
+
+    <form method="POST">
+        <div class="mb-3">
+            <label>Course Code</label>
+            <input type="text" name="code" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Course Title</label>
+            <input type="text" name="title" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Unit</label>
+            <input type="number" name="unit" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Level</label>
+            <select name="level" class="form-control">
+                <option>100</option>
+                <option>200</option>
+                <option>300</option>
+                <option>400</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Semester</label>
+            <select name="semester" class="form-control">
+                <option>First</option>
+                <option>Second</option>
+            </select>
+        </div>
+
+        <button class="btn btn-dark">Add Course</button>
+    </form>
+</div>
+
+{% endblock %}

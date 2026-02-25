@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Admin Dashboard</h3>
+
+<div class="row text-center mt-3">
+    <div class="col-md-4">
+        <div class="card shadow p-3">
+            <h4>{{ students }}</h4>
+            <p>Total Students</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow p-3">
+            <h4>{{ courses }}</h4>
+            <p>Total Courses</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow p-3">
+            <h4>{{ results }}</h4>
+            <p>Total Results</p>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<a href="/add-student" class="btn btn-primary">Add Student</a>
+<a href="/add-course" class="btn btn-dark">Add Course</a>
+<a href="/upload-result" class="btn btn-success">Upload Result</a>
+<a href="/view-results" class="btn btn-warning">View / Approve Results</a>
+
+
+{% endblock %}
