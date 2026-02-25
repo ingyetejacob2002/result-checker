@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Welcome {{ student.name }}</h3>
+<p><strong>Matric:</strong> {{ student.matric }}</p>
+<p><strong>Level:</strong> {{ student.level }}</p>
+
+<div class="card shadow mt-3">
+    <div class="card-body">
+        <h5>Approved Results</h5>
+
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Code</th>
+                    <th>Title</th>
+                    <th>Unit</th>
+                    <th>Score</th>
+                    <th>Grade</th>
+                    <th>GP</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in results %}
+                <tr>
+                    <td>{{ r.code }}</td>
+                    <td>{{ r.title }}</td>
+                    <td>{{ r.unit }}</td>
+                    <td>{{ r.score }}</td>
+                    <td>{{ r.grade }}</td>
+                    <td>{{ r.grade_point }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h5>GPA: <span class="badge bg-success">{{ gpa }}</span></h5>
+
+        <a href="/download-pdf" class="btn btn-primary mt-2">Download PDF</a>
+    </div>
+</div>
+
+{% endblock %}

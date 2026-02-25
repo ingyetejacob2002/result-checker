@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h4>All Results</h4>
+
+<table class="table table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>Student</th>
+            <th>Course</th>
+            <th>Score</th>
+            <th>Grade</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in results %}
+        <tr>
+            <td>{{ r.student }}</td>
+            <td>{{ r.course }}</td>
+            <td>{{ r.score }}</td>
+            <td>{{ r.grade }}</td>
+            <td>
+                {% if r.approved %}
+                    <span class="badge bg-success">Approved</span>
+                {% else %}
+                    <span class="badge bg-warning">Pending</span>
+                {% endif %}
+            </td>
+            <td>
+                {% if not r.approved %}
+                    <a href="/approve/{{ r.id }}" class="btn btn-sm btn-success">Approve</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

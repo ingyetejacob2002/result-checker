@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card shadow p-4">
+    <h4>Upload Result</h4>
+
+    <form method="POST">
+        <div class="mb-3">
+            <label>Select Student</label>
+            <select name="student_id" class="form-control">
+                {% for s in students %}
+                    <option value="{{ s.id }}">{{ s.name }} ({{ s.matric }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Select Course</label>
+            <select name="course_id" class="form-control">
+                {% for c in courses %}
+                    <option value="{{ c.id }}">{{ c.code }} - {{ c.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Score</label>
+            <input type="number" name="score" class="form-control" required>
+        </div>
+
+        <button class="btn btn-success">Upload</button>
+    </form>
+</div>
+
+{% endblock %}
